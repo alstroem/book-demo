@@ -1,0 +1,15 @@
+[versions]
+
+junit-ver = "4.13.2"
+
+[libraries]
+
+junit = { module = "junit:junit", version.ref = "junit-ver" }
+
+[bundles]
+
+
+[plugins]
+
+kotlin = { id = "org.jetbrains.kotlin.android", version = "1.6.10" }
+gradle-updates = { id = "com.github.ben-manes.versions", version = "0.41.0" }
