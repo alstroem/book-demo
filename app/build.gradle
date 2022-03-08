@@ -1,15 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlinx-serialization'
 }
 
 android {
-    compileSdk 31
+    compileSdk rootProject.compileSdkVer
 
     defaultConfig {
         applicationId "dk.alstroem.bookdemo"
-        minSdk 26
-        targetSdk 31
+
+        minSdk rootProject.minSdkVer
+        targetSdk rootProject.targetSdkVer
+
         versionCode 1
         versionName "1.0"
 
@@ -46,11 +51,20 @@ android {
 }
 
 dependencies {
+    implementation project(":lists-domain")
+    implementation project(":lists-data")
+
     implementation androidx.core
     implementation androidx.lifecycle
     implementation androidx.activity
-
     implementation androidx.bundles.compose
+
+    implementation libs.hilt
+    kapt libs.hilt.compiler
+
+    implementation libs.bundles.ktor
+
+    implementation libs.timber
 
     testImplementation libs.junit
     androidTestImplementation androidx.bundles.android.test

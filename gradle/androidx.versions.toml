@@ -1,9 +1,9 @@
 [versions]
 
 activity-ver = "1.4.0"
-compose-ver = "1.1.0-rc03"
+compose-ver = "1.1.0"
 core-ver = "1.7.0"
-lifecycle-ver = "2.4.0"
+lifecycle-ver = "2.4.1"
 navigation-ver = "2.4.0"
 
 junit-ver = "1.1.3"

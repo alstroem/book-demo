@@ -22,4 +22,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Book Demo"
-include ':app'
+
+include ':app',
+        ':lists-data',
+        ':lists-domain'

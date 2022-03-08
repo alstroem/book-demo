@@ -1,15 +1,34 @@
 [versions]
 
+coroutines-ver = "1.6.0"
+hilt-ver = "2.40.5"
+ktor-ver = "1.6.7"
+serialization-ver = "1.3.2"
+timber-ver = "5.0.1"
+
 junit-ver = "4.13.2"
 
 [libraries]
+
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines-ver" }
+
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt-ver" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-ver" }
+
+ktor-client = { module = "io.ktor:ktor-client-android", version.ref = "ktor-ver" }
+ktor-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktor-ver" }
+ktor-logging = { module = "io.ktor:ktor-client-logging-jvm", version.ref = "ktor-ver" }
+
+serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization-ver" }
+
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber-ver" }
 
 junit = { module = "junit:junit", version.ref = "junit-ver" }
 
 [bundles]
 
+ktor = ["ktor-client", "ktor-serialization", "ktor-logging"]
 
 [plugins]
 
-kotlin = { id = "org.jetbrains.kotlin.android", version = "1.6.10" }
-gradle-updates = { id = "com.github.ben-manes.versions", version = "0.41.0" }
+gradle-updates = { id = "com.github.ben-manes.versions", version = "0.42.0" }

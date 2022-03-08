@@ -1,0 +1,39 @@
+package dk.alstroem.bookdemo.di
+
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import dk.alstroem.lists_data.ListsRepositoryImpl
+import dk.alstroem.lists_data.remote.ListsRemoteDataSource
+import dk.alstroem.lists_data.remote.ListsService
+import dk.alstroem.lists_domain.ListsRepository
+import io.ktor.client.HttpClient
+import kotlinx.coroutines.CoroutineScope
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+object ListsDataModule {
+
+    @Singleton
+    @Provides
+    fun provideListsService(client: HttpClient): ListsService {
+        return ListsService(client)
+    }
+
+    @Singleton
+    @Provides
+    fun provideListsRemoteDataSource(service: ListsService): ListsRemoteDataSource {
+        return ListsRemoteDataSource(service)
+    }
+
+    @Singleton
+    @Provides
+    fun provideListsRepository(
+        externalScope: CoroutineScope,
+        remoteDataSource: ListsRemoteDataSource
+    ): ListsRepository {
+        return ListsRepositoryImpl(externalScope, remoteDataSource)
+    }
+}
