@@ -60,11 +60,14 @@ android {
 dependencies {
     implementation project(":lists-domain")
     implementation project(":lists-data")
+    implementation project(":theme")
 
     implementation androidx.core
     implementation androidx.lifecycle
     implementation androidx.activity
+
     implementation androidx.bundles.compose
+    debugImplementation androidx.compose.tooling
 
     implementation libs.hilt
     kapt libs.hilt.compiler
@@ -75,5 +78,4 @@ dependencies {
 
     testImplementation libs.junit
     androidTestImplementation androidx.bundles.android.test
-    debugImplementation androidx.compose.tooling
 }

@@ -1,4 +1,4 @@
-package dk.alstroem.bookdemo.ui.theme
+package dk.alstroem.theme.ui
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
