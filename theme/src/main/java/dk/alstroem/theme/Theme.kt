@@ -1,4 +1,4 @@
-package dk.alstroem.theme.ui
+package dk.alstroem.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

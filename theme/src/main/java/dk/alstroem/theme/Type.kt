@@ -1,4 +1,4 @@
-package dk.alstroem.theme.ui
+package dk.alstroem.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

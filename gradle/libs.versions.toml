@@ -1,7 +1,7 @@
 [versions]
 
 coroutines-ver = "1.6.0"
-hilt-ver = "2.40.5"
+hilt-ver = "2.41"
 ktor-ver = "1.6.7"
 serialization-ver = "1.3.2"
 timber-ver = "5.0.1"

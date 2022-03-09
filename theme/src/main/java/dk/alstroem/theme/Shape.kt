@@ -1,4 +1,4 @@
-package dk.alstroem.theme.ui
+package dk.alstroem.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
