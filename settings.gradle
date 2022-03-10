@@ -26,4 +26,5 @@ rootProject.name = "Book Demo"
 include ':app',
         ':lists-data',
         ':lists-domain',
+        ':navigation-lib',
         ':theme'

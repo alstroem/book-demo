@@ -61,11 +61,14 @@ dependencies {
     implementation project(":lists-domain")
     implementation project(":lists-data")
     implementation project(":theme")
+    implementation project(":navigation-lib")
 
     implementation androidx.core
     implementation androidx.lifecycle
     implementation androidx.activity
+    implementation androidx.navigation
 
+    implementation androidx.compose.hilt
     implementation androidx.bundles.compose
     debugImplementation androidx.compose.tooling
 
