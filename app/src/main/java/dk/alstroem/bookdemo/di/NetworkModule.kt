@@ -8,7 +8,6 @@ import dk.alstroem.bookdemo.BuildConfig
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.features.DefaultRequest
-import io.ktor.client.features.defaultRequest
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.features.logging.LogLevel
@@ -37,11 +36,13 @@ object NetworkModule {
         return HttpClient(Android) {
 
             install(JsonFeature) {
-                serializer = KotlinxSerializer(Json {
-                    prettyPrint = true
-                    isLenient = true
-                    ignoreUnknownKeys = true
-                })
+                serializer = KotlinxSerializer(
+                    Json {
+                        prettyPrint = true
+                        isLenient = true
+                        ignoreUnknownKeys = true
+                    }
+                )
 
                 engine {
                     connectTimeout = TIME_OUT

@@ -5,8 +5,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dk.alstroem.navigation.lib.NavDestinations
 import dk.alstroem.navigation.lib.NavManager
 import kotlinx.coroutines.flow.launchIn
@@ -31,7 +31,6 @@ fun BookNavGraph(
         modifier = modifier
     ) {
         composable(NavDestinations.listsNames.destination) {
-
         }
     }
 }

@@ -14,5 +14,4 @@ object NavigationModule {
     @Singleton
     @Provides
     fun provideNavManager() = NavManager()
-
 }
