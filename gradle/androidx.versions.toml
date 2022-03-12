@@ -15,6 +15,7 @@ espresso-ver = "3.4.0"
 activity = { module = "androidx.activity:activity-compose", version.ref = "activity-ver" }
 
 compose-hilt = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "compose-hilt-ver" }
+compose-lifecycle = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "compose-ver" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose-ver" }
 compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ver" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ver" }

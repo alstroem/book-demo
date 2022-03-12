@@ -2,6 +2,7 @@ package dk.alstroem.bookdemo
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -25,7 +26,10 @@ fun BookNavGraph(
             route = NavDestinations.listsNames.destination,
             arguments = NavDestinations.listsNames.arguments
         ) {
-            ListNames(navController = navController)
+            ListNames(
+                navController = navController,
+                viewModel = hiltViewModel()
+            )
         }
     }
 }
