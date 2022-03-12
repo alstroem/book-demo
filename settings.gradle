@@ -27,4 +27,5 @@ include ':app',
         ':lists-data',
         ':lists-domain',
         ':navigation-lib',
-        ':theme'
+        ':theme',
+        ':listnames-ui'
