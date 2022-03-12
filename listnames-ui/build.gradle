@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+    implementation project(":theme")
+
     implementation androidx.core
     implementation androidx.navigation
     implementation androidx.bundles.compose
