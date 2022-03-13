@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dk.alstroem.lists_domain.GetListNamesUseCase
 import dk.alstroem.lists_domain.model.ListNameResult
-import dk.alstroem.lists_domain.model.ListNames
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,8 +15,8 @@ class ListNamesViewModel @Inject constructor(
     private val getListNamesUseCase: GetListNamesUseCase
 ): ViewModel() {
 
-    private val _listNames = MutableLiveData<List<ListNameResult>>()
-    val listNames: LiveData<List<ListNameResult>> = _listNames
+    private val _listNameItems = MutableLiveData<List<ListNameResult>>()
+    val listNameItems: LiveData<List<ListNameResult>> = _listNameItems
 
     init {
         fetchListNames()
@@ -25,7 +24,8 @@ class ListNamesViewModel @Inject constructor(
 
     private fun fetchListNames() {
         viewModelScope.launch {
-            _listNames.value = getListNamesUseCase().results.sortedBy { it.displayName }
+            val listNames = getListNamesUseCase()
+            _listNameItems.value = listNames.results.sortedBy { it.displayName }
         }
     }
 }
