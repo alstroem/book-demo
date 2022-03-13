@@ -3,6 +3,7 @@
 activity-ver = "1.4.0"
 compose-ver = "1.1.1"
 compose-hilt-ver = "1.0.0"
+compose-material-ver = "1.0.0-alpha07"
 core-ver = "1.7.0"
 lifecycle-ver = "2.4.1"
 navigation-ver = "2.4.0"
@@ -16,7 +17,7 @@ activity = { module = "androidx.activity:activity-compose", version.ref = "activ
 
 compose-hilt = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "compose-hilt-ver" }
 compose-lifecycle = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "compose-ver" }
-compose-material = { module = "androidx.compose.material:material", version.ref = "compose-ver" }
+compose-material = { module = "androidx.compose.material3:material3", version.ref = "compose-material-ver" }
 compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ver" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ver" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ver" }
