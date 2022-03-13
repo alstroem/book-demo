@@ -1,5 +1,6 @@
 [versions]
 
+accompanist-ver = "0.23.1"
 coroutines-ver = "1.6.0"
 hilt-ver = "2.41"
 ktor-ver = "1.6.7"
@@ -9,6 +10,8 @@ timber-ver = "5.0.1"
 junit-ver = "4.13.2"
 
 [libraries]
+
+accompanist-systemui = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-ver" }
 
 coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines-ver" }
 

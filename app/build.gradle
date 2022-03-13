@@ -110,6 +110,8 @@ dependencies {
 
     implementation libs.timber
 
+    implementation libs.accompanist.systemui
+
     testImplementation libs.junit
     androidTestImplementation androidx.bundles.android.test
 }

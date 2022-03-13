@@ -39,5 +39,4 @@ dependencies {
     implementation androidx.core
     implementation androidx.bundles.compose
     debugImplementation androidx.compose.tooling
-
 }

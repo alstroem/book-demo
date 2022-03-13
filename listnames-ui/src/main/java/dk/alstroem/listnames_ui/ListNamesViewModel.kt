@@ -25,7 +25,7 @@ class ListNamesViewModel @Inject constructor(
 
     private fun fetchListNames() {
         viewModelScope.launch {
-            _listNames.value = getListNamesUseCase().results
+            _listNames.value = getListNamesUseCase().results.sortedBy { it.displayName }
         }
     }
 }
