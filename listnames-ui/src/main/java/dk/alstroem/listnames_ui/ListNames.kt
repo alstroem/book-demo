@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -24,7 +23,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -66,7 +64,7 @@ private fun ListNamesScreen(
 }
 
 @Composable
-fun ListsNamesTitle(modifier: Modifier = Modifier) {
+private fun ListsNamesTitle(modifier: Modifier = Modifier) {
     Text(
         text = stringResource(id = R.string.list_names_lbl),
         style = MaterialTheme.typography.headlineLarge,
@@ -101,7 +99,7 @@ private fun ListName(
 }
 
 @Composable
-fun ListNameTitle(title: String) {
+private fun ListNameTitle(title: String) {
     Text(
         text = title,
         style = MaterialTheme.typography.titleMedium,
@@ -110,7 +108,7 @@ fun ListNameTitle(title: String) {
 }
 
 @Composable
-fun ListNamePublished(published: String) {
+private fun ListNamePublished(published: String) {
     Row {
         Text(
             text = stringResource(id = R.string.list_name_newest_published_lbl),
