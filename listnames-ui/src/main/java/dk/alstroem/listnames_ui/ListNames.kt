@@ -46,7 +46,7 @@ private fun ListNamesScreen(
         verticalArrangement = Arrangement.spacedBy(8.dp)
 
     ) {
-        items(listNameItems) { listNameResult ->
+        items(items = listNameItems) { listNameResult ->
             ListName(listNameResult = listNameResult)
         }
     }
