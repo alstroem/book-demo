@@ -25,7 +25,7 @@ class ListNamesViewModel @Inject constructor(
     private fun fetchListNames() {
         viewModelScope.launch {
             val listNames = getListNamesUseCase()
-            _listNameItems.value = listNames.results.sortedBy { it.displayName }
+            _listNameItems.value = listNames.results.sortedByDescending { it.newestPublishedDate }
         }
     }
 }

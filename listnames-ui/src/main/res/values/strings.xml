@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="list_names_lbl">Best Sellers lists</string>
+    <string name="list_name_newest_published_lbl">Published:</string>
+</resources>
