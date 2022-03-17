@@ -18,11 +18,13 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -46,30 +48,45 @@ private fun ListNamesScreen(
     modifier: Modifier = Modifier,
     onClick: (ListNameResult) -> Unit
 ) {
-    val listNameItems by viewModel.listNameItems.observeAsState(initial = emptyList())
+    val listNames by viewModel.listNames.collectAsState()
+
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
 
     ) {
-        item { ListsNamesTitle() }
+        item { ListsNamesHeader(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 16.dp)
+        ) }
 
-        items(items = listNameItems) { listNameResult ->
+        item { Spacer(modifier = Modifier.height(8.dp)) }
+
+        items(items = listNames.results.sortedByDescending { it.newestPublishedDate }) { listNameResult ->
             ListName(listNameResult = listNameResult) {
                 onClick(listNameResult)
             }
         }
+
+        item { Spacer(modifier = Modifier.height(8.dp)) }
+
+        item { ListsNamesFooter(
+            copyright = listNames.copyright,
+            modifier = Modifier.padding(all = 16.dp)
+        ) }
     }
 }
 
 @Composable
-private fun ListsNamesTitle(modifier: Modifier = Modifier) {
+private fun ListsNamesHeader(modifier: Modifier = Modifier) {
     Text(
         text = stringResource(id = R.string.list_names_lbl),
+        textAlign = TextAlign.Center,
         style = MaterialTheme.typography.headlineLarge,
         color = MaterialTheme.colorScheme.onBackground,
-        modifier = modifier.padding(bottom = 8.dp)
+        modifier = modifier
     )
 }
 
@@ -124,6 +141,28 @@ private fun ListNamePublished(published: String) {
     }
 }
 
+@Composable
+fun ListsNamesFooter(
+    copyright: String,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = copyright,
+        textAlign = TextAlign.Center,
+        style = MaterialTheme.typography.labelSmall,
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ListsNamesHeaderPreview() {
+    BookDemoTheme {
+        ListsNamesHeader()
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -138,5 +177,13 @@ fun DefaultPreview() {
                 UpdateFrequency.WEEKLY
             )
         ) {}
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ListsNamesFooterPreview() {
+    BookDemoTheme {
+        ListsNamesFooter(copyright = "All right reserved")
     }
 }
