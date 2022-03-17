@@ -20,7 +20,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -56,7 +55,7 @@ private fun ListNamesScreen(
         verticalArrangement = Arrangement.spacedBy(8.dp)
 
     ) {
-        item { ListsNamesHeader(
+        item { ListNamesHeader(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)
@@ -72,7 +71,7 @@ private fun ListNamesScreen(
 
         item { Spacer(modifier = Modifier.height(8.dp)) }
 
-        item { ListsNamesFooter(
+        item { ListNamesFooter(
             copyright = listNames.copyright,
             modifier = Modifier.padding(all = 16.dp)
         ) }
@@ -80,7 +79,7 @@ private fun ListNamesScreen(
 }
 
 @Composable
-private fun ListsNamesHeader(modifier: Modifier = Modifier) {
+private fun ListNamesHeader(modifier: Modifier = Modifier) {
     Text(
         text = stringResource(id = R.string.list_names_lbl),
         textAlign = TextAlign.Center,
@@ -142,7 +141,7 @@ private fun ListNamePublished(published: String) {
 }
 
 @Composable
-fun ListsNamesFooter(
+fun ListNamesFooter(
     copyright: String,
     modifier: Modifier = Modifier
 ) {
@@ -157,15 +156,15 @@ fun ListsNamesFooter(
 
 @Preview(showBackground = true)
 @Composable
-fun ListsNamesHeaderPreview() {
+fun ListNamesHeaderPreview() {
     BookDemoTheme {
-        ListsNamesHeader()
+        ListNamesHeader()
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun ListNamePreview() {
     BookDemoTheme {
         ListName(
             listNameResult = ListNameResult(
@@ -182,8 +181,8 @@ fun DefaultPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun ListsNamesFooterPreview() {
+fun ListNamesFooterPreview() {
     BookDemoTheme {
-        ListsNamesFooter(copyright = "All right reserved")
+        ListNamesFooter(copyright = "All right reserved")
     }
 }
