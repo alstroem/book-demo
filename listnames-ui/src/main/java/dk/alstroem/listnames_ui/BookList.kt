@@ -54,6 +54,7 @@ private fun BookListScreen(
     }.collectAsLazyPagingItems()
 
     LazyVerticalGrid(
+        modifier = modifier,
         cells = GridCells.Adaptive(minSize = 160.dp),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -76,15 +77,5 @@ fun BookItem(
         AsyncImage(model = book.bookImage, contentDescription = "Book image", modifier = modifier
             .fillMaxWidth()
             .aspectRatio(0.66f))
-    }
-}
-
-@ExperimentalFoundationApi
-fun <T: Any> LazyGridScope.items(
-    lazyPagingItems: LazyPagingItems<T>,
-    itemContent: @Composable LazyItemScope.(value: T?) -> Unit
-) {
-    items(lazyPagingItems.itemCount) { index ->
-        itemContent(lazyPagingItems[index])
     }
 }
