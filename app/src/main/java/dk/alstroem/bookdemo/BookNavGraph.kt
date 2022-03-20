@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dk.alstroem.listnames_ui.BookList
 import dk.alstroem.listnames_ui.ListNames
 import dk.alstroem.lists_domain.model.ListNames
 import dk.alstroem.navigation.lib.NavDestinations
@@ -31,6 +32,17 @@ fun BookNavGraph(
             ListNames(
                 navController = navController,
                 viewModel = hiltViewModel()
+            )
+        }
+
+        composable(
+            route = NavDestinations.bookList.destination,
+            arguments = NavDestinations.bookList.arguments
+        ) {
+            BookList(
+                navController = navController,
+                viewModel = hiltViewModel(),
+                encodedName = it.arguments?.getString("listName") ?: ""
             )
         }
     }

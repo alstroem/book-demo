@@ -12,12 +12,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BookListViewModel @Inject constructor(
-    encodedName: String,
-    getBookList: GetBookListUseCase
+    private val getBookList: GetBookListUseCase
 ): ViewModel() {
 
-    val pageFlow = Pager(
-        PagingConfig(pageSize = 20)
+    fun getPageFlow(encodedName: String) = Pager(
+        PagingConfig(
+            pageSize = 20,
+            prefetchDistance = 10,
+            initialLoadSize = 20,
+            enablePlaceholders = false
+        )
     ) {
         BookPagingSource(getBookList, encodedName)
     }.flow.cachedIn(viewModelScope)

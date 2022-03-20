@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import dk.alstroem.lists_domain.model.ListNameResult
 import dk.alstroem.lists_domain.model.UpdateFrequency
+import dk.alstroem.navigation.lib.NavDestinations
 import dk.alstroem.theme.BookDemoTheme
 
 @Composable
@@ -37,7 +38,7 @@ fun ListNames(
     viewModel: ListNamesViewModel
 ) {
     ListNamesScreen(viewModel = viewModel) {
-        // TODO: Add navigation
+        navController.navigate(NavDestinations.bookListRoute(it.listNameEncoded))
     }
 }
 

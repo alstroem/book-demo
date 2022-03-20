@@ -19,15 +19,18 @@ class BookPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Book> {
         return try {
-            val pageNumber = params.key ?: 1
+            val pageNumber = params.key ?: 0
+            val offset = pageNumber.times(params.loadSize)
             val response = getBookList(
                 encodedName = query,
-                offset = pageNumber.times(params.loadSize)
+                offset = offset
             )
+
+            val nextPageNumber = (pageNumber + 1).takeIf { it.times(params.loadSize) < response.numResults }
             LoadResult.Page(
                 data = response.results.books,
                 prevKey = null,
-                nextKey = pageNumber + 1
+                nextKey = nextPageNumber
             )
         } catch (e: IOException) {
             LoadResult.Error(e)

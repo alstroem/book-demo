@@ -45,6 +45,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 
 dependencies {
     implementation project(":lists-domain")
+    implementation project(":navigation-lib")
     implementation project(":theme")
 
     implementation androidx.core
