@@ -1,0 +1,30 @@
+package dk.alstroem.lists_domain.model
+
+data class Book(
+    val ageGroup: String,
+    val amazonProductUrl: String,
+    val articleChapterLink: String,
+    val asterisk: Int,
+    val author: String,
+    val bookImage: String,
+    val bookImageHeight: Int,
+    val bookImageWidth: Int,
+    val bookReviewLink: String,
+    val bookUri: String,
+    val buyLinks: List<BuyLink>,
+    val contributor: String,
+    val contributorNote: String,
+    val dagger: Int,
+    val description: String,
+    val firstChapterLink: String,
+    val isbns: List<Isbn>,
+    val price: String,
+    val primaryIsbn10: String,
+    val primaryIsbn13: String,
+    val publisher: String,
+    val rank: Int,
+    val rankLastWeek: Int,
+    val sundayReviewLink: String,
+    val title: String,
+    val weeksOnList: Int
+)

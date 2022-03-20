@@ -1,32 +1,28 @@
-package dk.alstroem.lists_data
+package dk.alstroem.lists_domain
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import dk.alstroem.lists_data.remote.ListsRemoteDataSource
-import dk.alstroem.lists_data.remote.model.BookRemote
+import dk.alstroem.lists_domain.model.Book
 import java.io.IOException
-import java.lang.Exception
-
-private const val PAGE_SIZE = 20
 
 class BookPagingSource(
-    private val remoteDataSource: ListsRemoteDataSource,
+    private val getBookList: GetBookListUseCase,
     private val query: String
-) : PagingSource<Int, BookRemote>() {
+) : PagingSource<Int, Book>() {
 
-    override fun getRefreshKey(state: PagingState<Int, BookRemote>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, Book>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, BookRemote> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Book> {
         return try {
             val pageNumber = params.key ?: 1
-            val response = remoteDataSource.getBookList(
+            val response = getBookList(
                 encodedName = query,
-                offset = pageNumber.times(PAGE_SIZE)
+                offset = pageNumber.times(params.loadSize)
             )
             LoadResult.Page(
                 data = response.results.books,

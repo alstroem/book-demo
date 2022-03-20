@@ -13,7 +13,7 @@ class ListsRemoteDataSource(
 
     suspend fun getBookList(
         encodedName: String,
-        date: String = "current",
+        date: String,
         offset: Int
     ): BookListRemote {
         return listsService.getBookList(encodedName, date, offset)
