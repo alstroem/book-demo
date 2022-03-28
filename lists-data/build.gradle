@@ -39,6 +39,10 @@ dependencies {
     implementation libs.bundles.ktor
     implementation libs.serialization
 
+    implementation androidx.room.runtime
+    implementation androidx.room.paging
+    annotationProcessor androidx.room.compiler
+
     testImplementation libs.junit
 
 }

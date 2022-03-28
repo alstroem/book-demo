@@ -28,4 +28,7 @@ include ':app',
         ':lists-domain',
         ':navigation-lib',
         ':theme',
-        ':listnames-ui'
+        ':listnames-ui',
+        ':book-data',
+        ':book-domain',
+        ':book-ui'

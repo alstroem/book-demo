@@ -18,15 +18,11 @@ object ListsDataModule {
 
     @Singleton
     @Provides
-    fun provideListsService(client: HttpClient): ListsService {
-        return ListsService(client)
-    }
+    fun provideListsService(client: HttpClient) = ListsService(client)
 
     @Singleton
     @Provides
-    fun provideListsRemoteDataSource(service: ListsService): ListsRemoteDataSource {
-        return ListsRemoteDataSource(service)
-    }
+    fun provideListsRemoteDataSource(service: ListsService) = ListsRemoteDataSource(service)
 
     @Singleton
     @Provides

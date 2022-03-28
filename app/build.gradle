@@ -87,9 +87,12 @@ task ktlintFormat(type: JavaExec, group: "formatting") {
 
 dependencies {
     implementation project(":listnames-ui")
-
     implementation project(":lists-domain")
     implementation project(":lists-data")
+
+    implementation project(":book-ui")
+    implementation project(":book-domain")
+    implementation project(":book-data")
 
     implementation project(":theme")
     implementation project(":navigation-lib")

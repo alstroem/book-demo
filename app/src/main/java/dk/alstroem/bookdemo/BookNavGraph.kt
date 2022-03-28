@@ -9,9 +9,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dk.alstroem.listnames_ui.BookList
+import dk.alstroem.book_ui.BookList
 import dk.alstroem.listnames_ui.ListNames
-import dk.alstroem.lists_domain.model.ListNames
 import dk.alstroem.navigation.lib.NavDestinations
 
 @Composable
