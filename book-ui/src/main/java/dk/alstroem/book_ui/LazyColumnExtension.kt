@@ -1,4 +1,4 @@
-package dk.alstroem.listnames_ui
+package dk.alstroem.best_sellers_ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.lazy.LazyGridScope

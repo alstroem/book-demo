@@ -4,10 +4,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dk.alstroem.lists_data.ListsRepositoryImpl
-import dk.alstroem.lists_data.remote.ListsRemoteDataSource
-import dk.alstroem.lists_data.remote.ListsService
-import dk.alstroem.lists_domain.ListsRepository
+import dk.alstroem.best_sellers_data.ListsRepositoryImpl
+import dk.alstroem.best_sellers_data.remote.ListsRemoteDataSource
+import dk.alstroem.best_sellers_data.remote.ListsService
+import dk.alstroem.best_sellers_domain.ListsRepository
 import io.ktor.client.HttpClient
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Singleton

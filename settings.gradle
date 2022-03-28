@@ -24,11 +24,11 @@ dependencyResolutionManagement {
 rootProject.name = "Book Demo"
 
 include ':app',
-        ':lists-data',
-        ':lists-domain',
+        ':best-sellers-data',
+        ':best-sellers-domain',
         ':navigation-lib',
         ':theme',
-        ':listnames-ui',
+        ':best-sellers-ui',
         ':book-data',
         ':book-domain',
         ':book-ui'

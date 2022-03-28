@@ -15,7 +15,7 @@ import androidx.navigation.NavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.AsyncImage
 import dk.alstroem.book_domain.model.Book
-import dk.alstroem.listnames_ui.items
+import dk.alstroem.best_sellers_ui.items
 
 @Composable
 fun BookList(
