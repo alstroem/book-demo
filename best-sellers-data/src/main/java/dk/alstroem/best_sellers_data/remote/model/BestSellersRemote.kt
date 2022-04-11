@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ListNamesRemote(
+data class BestSellersRemote(
     @SerialName("status")
     val status: String,
     @SerialName("copyright")
@@ -12,5 +12,5 @@ data class ListNamesRemote(
     @SerialName("num_results")
     val numResults: Int,
     @SerialName("results")
-    val results: List<ListNameResultRemote>
+    val results: List<BestSellerNameRemote>
 )

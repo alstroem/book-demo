@@ -52,11 +52,9 @@ dependencies {
     implementation androidx.core
     implementation androidx.lifecycle
     implementation androidx.navigation
-    implementation androidx.paging
 
     implementation androidx.bundles.compose
     implementation androidx.compose.lifecycle
-    implementation androidx.compose.paging
     debugImplementation androidx.compose.tooling
 
     implementation libs.coil

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlinx-serialization'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -39,8 +40,8 @@ dependencies {
     implementation libs.serialization
 
     implementation androidx.room.runtime
-    implementation androidx.room.paging
-    annotationProcessor androidx.room.compiler
+    implementation androidx.room.ktx
+    kapt androidx.room.compiler
 
     testImplementation libs.junit
 

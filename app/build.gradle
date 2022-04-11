@@ -106,6 +106,10 @@ dependencies {
     implementation androidx.bundles.compose
     debugImplementation androidx.compose.tooling
 
+    implementation androidx.room.runtime
+    implementation androidx.room.ktx
+    kapt androidx.room.compiler
+
     implementation libs.hilt
     kapt libs.hilt.compiler
 

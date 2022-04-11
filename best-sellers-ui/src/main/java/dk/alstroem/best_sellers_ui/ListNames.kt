@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import dk.alstroem.best_sellers_domain.model.ListNameResult
+import dk.alstroem.best_sellers_domain.model.BestSellerName
 import dk.alstroem.best_sellers_domain.model.UpdateFrequency
 import dk.alstroem.navigation.lib.NavDestinations
 import dk.alstroem.theme.BookDemoTheme
@@ -46,9 +46,9 @@ fun ListNames(
 private fun ListNamesScreen(
     viewModel: ListNamesViewModel,
     modifier: Modifier = Modifier,
-    onClick: (ListNameResult) -> Unit
+    onClick: (BestSellerName) -> Unit
 ) {
-    val listNames by viewModel.listNames.collectAsState()
+    val listNames by viewModel.bestSellers.collectAsState()
 
     LazyColumn(
         modifier = modifier.fillMaxSize(),
@@ -65,7 +65,7 @@ private fun ListNamesScreen(
         item { Spacer(modifier = Modifier.height(8.dp)) }
 
         items(items = listNames.results.sortedByDescending { it.newestPublishedDate }) { listNameResult ->
-            ListName(listNameResult = listNameResult) {
+            ListName(bestSellerName = listNameResult) {
                 onClick(listNameResult)
             }
         }
@@ -93,7 +93,7 @@ private fun ListNamesHeader(modifier: Modifier = Modifier) {
 @ExperimentalMaterial3Api
 @Composable
 private fun ListName(
-    listNameResult: ListNameResult,
+    bestSellerName: BestSellerName,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
@@ -107,9 +107,9 @@ private fun ListName(
             contentAlignment = Alignment.Center
         ) {
             Column {
-                ListNameTitle(title = listNameResult.displayName)
+                ListNameTitle(title = bestSellerName.displayName)
                 Spacer(modifier = Modifier.height(2.dp))
-                ListNamePublished(published = listNameResult.newestPublishedDate)
+                ListNamePublished(published = bestSellerName.newestPublishedDate)
             }
         }
     }
@@ -168,7 +168,7 @@ fun ListNamesHeaderPreview() {
 fun ListNamePreview() {
     BookDemoTheme {
         ListName(
-            listNameResult = ListNameResult(
+            bestSellerName = BestSellerName(
                 "Hardcover Fiction",
                 "Hardcover Fiction",
                 "hardcover-fiction",

@@ -37,6 +37,7 @@ navigation = { module = "androidx.navigation:navigation-compose", version.ref = 
 
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-ver" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-ver" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-ver" }
 room-paging = { module = "androidx.room:room-paging", version.ref = "room-paging-ver" }
 
 paging = { module = "androidx.paging:paging-runtime", version.ref = "paging-ver" }

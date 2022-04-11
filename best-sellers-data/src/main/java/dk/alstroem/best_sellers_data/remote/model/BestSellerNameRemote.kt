@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ListNameResultRemote(
+data class BestSellerNameRemote(
     @SerialName("list_name")
     val listName: String,
     @SerialName("display_name")

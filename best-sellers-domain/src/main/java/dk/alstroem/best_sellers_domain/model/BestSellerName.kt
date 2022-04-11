@@ -1,6 +1,6 @@
 package dk.alstroem.best_sellers_domain.model
 
-data class ListNameResult(
+data class BestSellerName(
     val listName: String,
     val displayName: String,
     val listNameEncoded: String,
