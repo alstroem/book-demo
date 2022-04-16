@@ -18,8 +18,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -28,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import dk.alstroem.best_sellers_domain.model.BestSellerName
+import dk.alstroem.best_sellers_domain.model.BestSellers
 import dk.alstroem.best_sellers_domain.model.UpdateFrequency
 import dk.alstroem.navigation.lib.NavDestinations
 import dk.alstroem.theme.BookDemoTheme
@@ -48,13 +49,14 @@ private fun ListNamesScreen(
     modifier: Modifier = Modifier,
     onClick: (BestSellerName) -> Unit
 ) {
-    val listNames by viewModel.bestSellers.collectAsState()
+
+    val bestSellers by viewModel.bestSellers.observeAsState(initial = BestSellers())
+    val bestSellerNames by viewModel.bestSellerNames.observeAsState(initial = emptyList())
 
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
-
     ) {
         item { ListNamesHeader(
             modifier = Modifier
@@ -64,7 +66,7 @@ private fun ListNamesScreen(
 
         item { Spacer(modifier = Modifier.height(8.dp)) }
 
-        items(items = listNames.results.sortedByDescending { it.newestPublishedDate }) { listNameResult ->
+        items(items = bestSellerNames.sortedByDescending { it.newestPublishedDate }) { listNameResult ->
             ListName(bestSellerName = listNameResult) {
                 onClick(listNameResult)
             }
@@ -73,7 +75,7 @@ private fun ListNamesScreen(
         item { Spacer(modifier = Modifier.height(8.dp)) }
 
         item { ListNamesFooter(
-            copyright = listNames.copyright,
+            copyright = bestSellers.copyright,
             modifier = Modifier.padding(all = 16.dp)
         ) }
     }

@@ -51,7 +51,7 @@ dependencies {
     implementation project(":theme")
 
     implementation androidx.core
-    implementation androidx.lifecycle
+    implementation androidx.lifecycle.viewmodel
     implementation androidx.navigation
     implementation androidx.paging
 

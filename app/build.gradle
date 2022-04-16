@@ -98,7 +98,6 @@ dependencies {
     implementation project(":navigation-lib")
 
     implementation androidx.core
-    implementation androidx.lifecycle
     implementation androidx.activity
     implementation androidx.navigation
 
