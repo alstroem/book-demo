@@ -36,7 +36,8 @@ dependencies {
     implementation androidx.core
     implementation androidx.paging
 
-    implementation libs.coroutines
+    implementation libs.coroutines.android
+    implementation libs.coroutines.core
 
     implementation libs.hilt
     kapt libs.hilt.compiler

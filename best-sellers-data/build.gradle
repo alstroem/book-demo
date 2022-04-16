@@ -36,8 +36,9 @@ dependencies {
     implementation project(':best-sellers-domain')
     implementation androidx.core
 
-    implementation libs.coroutines
-    implementation libs.bundles.ktor
+    implementation libs.coroutines.android
+    implementation libs.coroutines.core
+    implementation libs.ktor.client
     implementation libs.serialization
 
     implementation androidx.room.runtime

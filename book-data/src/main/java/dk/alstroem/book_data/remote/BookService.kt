@@ -1,9 +1,9 @@
 package dk.alstroem.book_data.remote
 
-import dk.alstroem.book_data.remote.model.BookListRemote
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
+import io.ktor.client.statement.HttpResponse
 
 class BookService(private val client: HttpClient) {
     /**
@@ -13,7 +13,7 @@ class BookService(private val client: HttpClient) {
         encodedName: String,
         date: String,
         offset: Int
-    ): BookListRemote = client.get("lists/$date/$encodedName.json") {
+    ): HttpResponse = client.get("lists/$date/$encodedName.json") {
         parameter("offset", offset)
     }
 }
