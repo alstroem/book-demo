@@ -57,34 +57,6 @@ android {
     }
 }
 
-configurations {
-    ktlint
-}
-
-dependencies {
-    ktlint ("com.pinterest:ktlint:0.44.0") {
-        attributes {
-            attribute(Bundling.BUNDLING_ATTRIBUTE, getObjects().named(Bundling, Bundling.EXTERNAL))
-        }
-    }
-}
-
-task ktlint(type: JavaExec, group: "verification") {
-    description = "Check Kotlin code style."
-    classpath = configurations.ktlint
-    mainClass.set("com.pinterest.ktlint.Main")
-    args "src/**/*.kt"
-}
-
-check.dependsOn ktlint
-
-task ktlintFormat(type: JavaExec, group: "formatting") {
-    description = "Fix Kotlin code style deviations."
-    classpath = configurations.ktlint
-    mainClass.set("com.pinterest.ktlint.Main")
-    args "-F", "src/**/*.kt"
-}
-
 dependencies {
     implementation project(':best-sellers-ui')
     implementation project(':best-sellers-domain')
