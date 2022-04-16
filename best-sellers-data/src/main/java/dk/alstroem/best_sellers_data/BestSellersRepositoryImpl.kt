@@ -13,7 +13,7 @@ class BestSellersRepositoryImpl(
     private val externalScope: CoroutineScope,
     private val localDataSource: BestSellersDao,
     private val remoteDataSource: BestSellersRemoteDataSource
-): BestSellersRepository {
+) : BestSellersRepository {
 
     override val bestSellers: Flow<BestSellers>
         get() = localDataSource.getBestSellers().map { it?.mapToDomain() ?: BestSellers() }

@@ -9,7 +9,6 @@ import dk.alstroem.best_sellers_data.remote.model.UpdateFrequencyRemote
 import dk.alstroem.best_sellers_domain.model.BestSellerName
 import dk.alstroem.best_sellers_domain.model.BestSellers
 import dk.alstroem.best_sellers_domain.model.UpdateFrequency
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 internal fun BestSellersRemote.mapToEntity() = BestSellersEntity(

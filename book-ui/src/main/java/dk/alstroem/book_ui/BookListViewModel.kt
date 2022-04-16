@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class BookListViewModel @Inject constructor(
     private val getBookList: GetBookListUseCase
-): ViewModel() {
+) : ViewModel() {
 
     fun getPageFlow(encodedName: String) = Pager(
         PagingConfig(

@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.AsyncImage
-import dk.alstroem.book_domain.model.Book
 import dk.alstroem.best_sellers_ui.items
+import dk.alstroem.book_domain.model.Book
 
 @Composable
 fun BookList(
@@ -60,8 +60,11 @@ fun BookItem(
     modifier: Modifier = Modifier
 ) {
     Card {
-        AsyncImage(model = book.bookImage, contentDescription = "Book image", modifier = modifier
-            .fillMaxWidth()
-            .aspectRatio(0.66f))
+        AsyncImage(
+            model = book.bookImage, contentDescription = "Book image",
+            modifier = modifier
+                .fillMaxWidth()
+                .aspectRatio(0.66f)
+        )
     }
 }

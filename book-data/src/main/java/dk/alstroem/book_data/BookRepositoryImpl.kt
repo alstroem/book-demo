@@ -6,7 +6,7 @@ import dk.alstroem.book_domain.model.BookList
 
 class BookRepositoryImpl(
     private val remoteDataSource: BookRemoteDataSource
-): BookRepository {
+) : BookRepository {
     override suspend fun fetchBookList(encodedName: String, date: String, offset: Int): BookList {
         return remoteDataSource.getBookList(encodedName, date, offset).mapToDomain()
     }

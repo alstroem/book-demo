@@ -32,5 +32,4 @@ interface BestSellersDao {
 
     @Query("SELECT * FROM BestSellerName")
     fun getAllBestSellerNames(): Flow<List<BestSellerNameEntity>>
-
 }
