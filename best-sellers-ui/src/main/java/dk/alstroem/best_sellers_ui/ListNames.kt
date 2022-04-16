@@ -58,11 +58,13 @@ private fun ListNamesScreen(
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        item { ListNamesHeader(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 16.dp)
-        ) }
+        item {
+            ListNamesHeader(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 16.dp)
+            )
+        }
 
         item { Spacer(modifier = Modifier.height(8.dp)) }
 
@@ -74,10 +76,12 @@ private fun ListNamesScreen(
 
         item { Spacer(modifier = Modifier.height(8.dp)) }
 
-        item { ListNamesFooter(
-            copyright = bestSellers.copyright,
-            modifier = Modifier.padding(all = 16.dp)
-        ) }
+        item {
+            ListNamesFooter(
+                copyright = bestSellers.copyright,
+                modifier = Modifier.padding(all = 16.dp)
+            )
+        }
     }
 }
 
