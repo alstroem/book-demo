@@ -6,8 +6,9 @@ import io.ktor.client.call.body
 class BestSellersRemoteDataSource(
     private val bestSellersService: BestSellersService
 ) {
-    // TODO: Add error handling
-    suspend fun getBestSellers(): BestSellersRemote {
-        return bestSellersService.getBestSellers().body()
+    suspend fun getBestSellers(): Result<BestSellersRemote> {
+        return runCatching {
+            bestSellersService.getBestSellers().body()
+        }
     }
 }

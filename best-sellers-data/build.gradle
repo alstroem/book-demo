@@ -45,6 +45,8 @@ dependencies {
     implementation androidx.room.ktx
     kapt androidx.room.compiler
 
+    implementation libs.timber
+
     testImplementation libs.junit
 
 }

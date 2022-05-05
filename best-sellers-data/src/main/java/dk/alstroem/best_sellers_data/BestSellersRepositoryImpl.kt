@@ -8,6 +8,7 @@ import dk.alstroem.best_sellers_domain.model.BestSellers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import timber.log.Timber
 
 class BestSellersRepositoryImpl(
     private val externalScope: CoroutineScope,
@@ -22,10 +23,13 @@ class BestSellersRepositoryImpl(
         get() = localDataSource.getAllBestSellerNames().map { it.mapToDomain() }
 
     override suspend fun updateBestSellers() {
-        val bestSellers = remoteDataSource.getBestSellers()
-        val bestSellersEntity = bestSellers.mapToEntity()
-        val bestSellerNamesEntity = bestSellers.results.map { it.mapToEntity() }
+        remoteDataSource.getBestSellers().onSuccess { bestSellers ->
+            val bestSellersEntity = bestSellers.mapToEntity()
+            val bestSellerNamesEntity = bestSellers.results.map { it.mapToEntity() }
 
-        localDataSource.updateBestSellers(bestSellersEntity, bestSellerNamesEntity)
+            localDataSource.updateBestSellers(bestSellersEntity, bestSellerNamesEntity)
+        }.onFailure {
+            Timber.e(it)
+        }
     }
 }
